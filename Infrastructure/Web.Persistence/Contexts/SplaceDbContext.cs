@@ -46,6 +46,8 @@ namespace Web.Persistence.Contexts
             var datas = ChangeTracker
                  .Entries<BaseEntity>();
 
+            // TODO Tüm sorgularda isDeleted değilse gelecek
+
             foreach (var data in datas)
             {
                 _ = data.State switch

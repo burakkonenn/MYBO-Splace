@@ -24,10 +24,10 @@ namespace Web.Persistence.Services.Design
             _context = context; 
         }
 
-        public async Task<Response<Domain.Entities.Design.DesignBackground>> CreateAsync(CreateDesignBackground model)
+        public async Task<Response<DesignBackground>> CreateAsync(CreateDesignBackground model)
         {
 
-            var desingBackground = new Web.Domain.Entities.Design.DesignBackground()
+            var desingBackground = new DesignBackground()
             {
                 Title = model.Title,
                 Wallpaper = model.Wallpaper,
@@ -40,7 +40,7 @@ namespace Web.Persistence.Services.Design
             await _context.DesignBackgrounds.AddAsync(desingBackground);
             await _context.SaveChangesAsync();
 
-            return Response<Domain.Entities.Design.DesignBackground>.Success(desingBackground, 200, 1);
+            return Response<DesignBackground>.Success(desingBackground, 200, 1);
         }
 
         public async Task<Response<GetUpdateDesignBackground>> GetUpdateAsync(Guid? id)
